@@ -25,7 +25,7 @@ class UsersController < ApplicationController
 
   get '/users/:id' do
 
-    @user = User.find(params[:id])
+    @user = User.find_by_id(params[:id])
 
     if logged_in? && @user == current_user
       erb :'/users/show'
@@ -34,6 +34,30 @@ class UsersController < ApplicationController
     end
 
   end
+
+  get '/workout' do
+
+    erb :'/users/workout'
+
+  end
+
+  post 'workout' do
+
+    @a =  params[:body_part]
+
+     redirect '/users/workout_now'
+  end
+
+  get '/workout_page' do
+    @user = current_user
+    erb :'/users/workout_now'
+  end
+
+  post '/workout_page' do
+
+    
+  end
+
 
 
 
