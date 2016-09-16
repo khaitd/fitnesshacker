@@ -42,14 +42,12 @@ class UsersController < ApplicationController
   end
 
   post '/workout' do
-    @user = current_user
     @b_part =  Type.all.detect{|x| x.name == params[:body_part]}
     redirect :"/workout/#{params[:body_part].downcase}"
   end
 
   get '/workout/:slug' do
     @user = current_user
-    binding.pry
     @b_part =  Type.all.detect{|x| x.name.downcase == params[:slug]}
     erb :'/users/workout_now'
   end
