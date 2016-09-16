@@ -46,15 +46,17 @@ class UsersController < ApplicationController
   post '/workout' do
     @user = current_user
     @b_part =  Type.all.detect{|x| x.name.downcase == params[:body_part]}
-    @exercise_1 = nil
-    @exercise_2 = nil
-    @b_part.exercises.sample(2).each do |wo|
-      if @exercise_1 == nil
-        @exercise_1 = wo
-      else
-        @exercise_2 = wo
-      end
-    end
+    array = @b_part.exercises.sample(2)
+    @exercise_1 = array[0]
+    @exercise_2 = array[1]
+    # binding.pry
+    # @b_part.exercises.sample(2).each do |wo|
+    #   if @exercise_1 == nil
+    #     @exercise_1 = wo
+    #   else
+    #     @exercise_2 = wo
+    #   end
+    # end
     @set_1 = [3,4,5].sample
     @set_2 = [3,4,5].sample
     @rep_1 = [8,10,12].sample
