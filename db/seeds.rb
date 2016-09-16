@@ -116,7 +116,7 @@ Continue lifting the dumbbells until your arms are extended above you in straigh
 After a second pause at the top, begin to lower the dumbbells to the original position by rotating the palms of your hands towards you. Tip: The left arm will be rotated in a counter clockwise manner while the right one will be rotated clockwise. Breathe in as you perform this portion of the movement.
 Repeat for the recommended amount of repetitions.")
 
-ex13.types << shoulders
+ex13.types << shoulder
 
 ex14 = Exercise.create(name: "Barbell Full Squat", description: "This exercise is best performed inside a squat rack for safety purposes. To begin, first set the bar on a rack just above shoulder level. Once the correct height is chosen and the bar is loaded, step under the bar and place the back of your shoulders (slightly below the neck) across it.
 Hold on to the bar using both arms at each side and lift it off the rack by first pushing with your legs and at the same time straightening your torso.
@@ -162,7 +162,7 @@ Raise your shoulders up as far as you can go as you breathe out and hold the con
 Slowly return to the starting position as you breathe in.
 Repeat for the recommended amount of repetitions.")
 
-ex19.types << shoulders
+ex19.types << shoulder
 
 ex20 = Exercise.create(name: "Cable Crossover", description: "To get yourself into the starting position, place the pulleys on a high position (above your head), select the resistance to be used and hold the pulleys in each hand.
 Step forward in front of an imaginary straight line between both pulleys while pulling your arms together in front of you. Your torso should have a small forward bend from the waist. This will be your starting position.
