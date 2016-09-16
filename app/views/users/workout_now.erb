@@ -3,5 +3,4 @@
 <% @b_part.exercises.sample(2).each.with_index(1) do |wo, i| %>
   <h3><%= i%>. <%= wo.name%></h3>
   <p><%= wo.description%></p>
-  <h3>Do <%=[3,4,5].sample%> sets of <%=[8,10,12].sample%> reps of <%=wo.name%>.</h3>
 <% end %>
