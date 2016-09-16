@@ -1,1 +1,6 @@
-<%= @user %>, here is your workout for you today
+<h2><%= @user.username %>, here is your workout for you today:</h2>
+
+<% @b_part.exercises.sample(2).each.with_index(1) do |wo, i| %>
+  <h3><%= i%>. <%= wo.name%></h3>
+  <p><%= wo.description%></p>
+<% end %>
