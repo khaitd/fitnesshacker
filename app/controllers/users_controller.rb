@@ -1,5 +1,7 @@
 class UsersController < ApplicationController
 
+  VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-]+(\.[a-z]+)*\.[a-z]+\z/i
+
 
   get '/login' do
       if logged_in?
@@ -81,6 +83,11 @@ class UsersController < ApplicationController
         redirect to '/signup'
         #put flash message saying username or email is taken
       end
+    end
+    if params[:username] == "" || params[:email] == "" || params[:password] == ""
+      #flash message enter something into the fields
+      flash[:message] = "You are missing a field."
+      redirect to '/signup'
     end
     user = User.new(params)
     if user.save && (user.username != '') && (user.email != '')
