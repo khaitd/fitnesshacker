@@ -1,7 +1,20 @@
 <h2><%= @user.username %>, here is your workout for you today:</h2>
 
-<% @b_part.exercises.sample(2).each.with_index(1) do |wo, i| %>
-  <h3><%= i%>. <%= wo.name%></h3>
-  <p><%= wo.description%></p>
-  <h3>Do <%=[3,4,5].sample%> sets of <%=[8,10,12].sample%> reps of <%=wo.name%>.</h3>
-<% end %>
+
+<h3>1. <%=@exercise_1.name%></h3>
+<p><%=@exercise_1.description%></p>
+<h3>Do <%=@set_1%> sets of <%=@rep_1%> reps of <%=@exercise_1.name%>.</h3>
+
+<br></br>
+
+<a href="users/<%=@exercise_1.name%>/<%=@rep_1%>/<%=@set_1%>">Click here to favorite this workout!</a>
+
+<br></br>
+
+<h3>2. <%=@exercise_2.name%></h3>
+<p><%=@exercise_2.description%></p>
+<h3>Do <%=@set_2%> sets of <%=@rep_2%> reps of <%=@exercise_2.name%>.</h3>
+
+<br></br>
+
+<a href="users/<%=@exercise_2.name%>/<%=@set_2%>/<%=@rep_2%>">Click here to favorite this workout!</a>

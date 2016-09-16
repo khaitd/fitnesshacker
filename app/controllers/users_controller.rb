@@ -44,6 +44,20 @@ class UsersController < ApplicationController
   post '/workout' do
     @user = current_user
     @b_part =  Type.all.detect{|x| x.name.downcase == params[:body_part]}
+    @exercise_1 = nil
+    @exercise_2 = nil
+    @b_part.exercises.sample(2).each do |wo|
+      if @exercise_1 == nil
+        @exercise_1 = wo
+      else
+        @exercise_2 = wo
+      end
+    end
+    @set_1 = [3,4,5].sample
+    @set_2 = [3,4,5].sample
+    @rep_1 = [8,10,12].sample
+    @rep_2 = [8,10,12].sample
+    # binding.pry
     erb :'users/workout_now'
   end
 
@@ -61,6 +75,13 @@ class UsersController < ApplicationController
   end
 
   post '/signup' do
+    # binding.pry
+    User.all.each do |user|
+      if user.username == params[:username] || user.email == params[:email]
+        redirect to '/signup'
+        #put flash message saying username or email is taken
+      end
+    end
     user = User.new(params)
     if user.save && (user.username != '') && (user.email != '')
       session[:user_id] = user.id
@@ -81,6 +102,10 @@ class UsersController < ApplicationController
     else
       redirect '/'
     end
+  end
+
+  get '/users/:exercise/:set/:rep' do
+    binding.pry
   end
 
 
