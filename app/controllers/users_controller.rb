@@ -91,6 +91,10 @@ class UsersController < ApplicationController
       flash[:message] = "You are missing a field."
       redirect to '/signup'
     end
+    if params[:email].match(VALID_EMAIL_REGEX) == nil
+      redirect to '/signup'
+    end
+
     user = User.new(params)
     if user.save && (user.username != '') && (user.email != '')
       session[:user_id] = user.id
