@@ -43,7 +43,7 @@ class UsersController < ApplicationController
 
   post '/workout' do
     @user = current_user
-    @b_part =  Type.all.detect{|x| x.name.downcase == params[:body_part]}
+    @b_part =  Type.all.detect{|x| x.name == params[:body_part]}
     erb :'users/workout_now'
   end
 

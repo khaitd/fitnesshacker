@@ -1,3 +1,12 @@
 <h1> Fitness Hacker </h1>
 
-<img src ="https://media.giphy.com/media/Oi7uQDWjzRaE0/giphy.gif">  </img>
+<br></br>
+<h2>Exercises grouped by type:</h2>
+<br></br>
+<%@types.each do |type|%>
+<h3><%=type.name%></h3>
+<%type.exercises.each do |exercise|%>
+<h4><%=exercise.name%></h4>
+<p><%=exercise.description%></p>
+<%end%>
+<%end%>

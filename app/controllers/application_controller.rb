@@ -23,7 +23,7 @@ class ApplicationController < Sinatra::Base
 
 
     get '/' do
-
+      @types = Type.all
 
       erb :index
     end
