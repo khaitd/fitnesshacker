@@ -42,32 +42,22 @@ class UsersController < ApplicationController
   end
 
   post '/workout' do
-<<<<<<< HEAD
-    @user = current_user
-    @b_part =  Type.all.detect{|x| x.name == params[:body_part]}
-    @exercise_1 = nil
-    @exercise_2 = nil
-    @b_part.exercises.sample(2).each do |wo|
-      if @exercise_1 == nil
-        @exercise_1 = wo
-      else
-        @exercise_2 = wo
-      end
-    end
-    @set_1 = [3,4,5].sample
-    @set_2 = [3,4,5].sample
-    @rep_1 = [8,10,12].sample
-    @rep_2 = [8,10,12].sample
-    erb :'users/workout_now'
-=======
     @b_part =  Type.all.detect{|x| x.name == params[:body_part]}
     redirect :"/workout/#{params[:body_part].downcase}"
->>>>>>> 388e5945a6918c10c991d0951f30847ce9f281cc
+
   end
 
   get '/workout/:slug' do
     @user = current_user
     @b_part =  Type.all.detect{|x| x.name.downcase == params[:slug]}
+    array = @b_part.exercises.sample(2)
+    @exercise_1 = array[0]
+    @exercise_2 = array[1]
+
+    @set_1 = rand(3..5)
+    @set_2 = rand(3..5)
+    @rep_1 = [8,10,12].sample
+    @rep_2 = [8,10,12].sample
     erb :'/users/workout_now'
   end
 
