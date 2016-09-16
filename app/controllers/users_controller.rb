@@ -41,25 +41,16 @@ class UsersController < ApplicationController
 
   end
 
-  post 'workout' do
-
-    @a =  params[:body_part]
-
-     redirect '/users/workout_now'
+  post '/workout' do
+    @user = current_user
+    @b_part =  Type.all.detect{|x| x.name.downcase == params[:body_part]}
+    erb :'users/workout_now'
   end
 
-  get '/workout_page' do
-    @user = current_user
+  get '/workout/:slug' do
+    @b_part =  Type.all.detect{|x| x.name.downcase == params[:slug]}
     erb :'/users/workout_now'
   end
-
-  post '/workout_page' do
-
-    
-  end
-
-
-
 
   get '/signup' do
     if logged_in?
