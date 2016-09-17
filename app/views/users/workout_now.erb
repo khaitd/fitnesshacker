@@ -7,14 +7,20 @@
 
 <br></br>
 
-<a href="users/<%=@exercise_1.name%>/<%=@rep_1%>/<%=@set_1%>">Click here to favorite this workout!</a>
-
-<br></br>
-
 <h3>2. <%=@exercise_2.name%></h3>
 <p><%=@exercise_2.description%></p>
 <h3>Do <%=@set_2%> sets of <%=@rep_2%> reps of <%=@exercise_2.name%>.</h3>
 
 <br></br>
 
-<a href="users/<%=@exercise_2.name%>/<%=@set_2%>/<%=@rep_2%>">Click here to favorite this workout!</a>
+<form action="/users/<%=@exercise_1.id%>/<%=@rep_1%>/<%=@set_1%>/<%=@exercise_2.id%>/<%=@rep_2%>/<%=@set_2%>" method="post">
+
+  <label>Check which workouts you'd like to save:</label>
+  <br></br>
+  <input type="checkbox" name="exercise_1[]" id="<%= @exercise_1.name %>" value="<%=@exercise_1.name%>"><%=@exercise_1.name%></input>
+  <input type="checkbox" name="exercise_2[]" id="<%= @exercise_2.name %>" value="<%=@exercise_2.name%>"><%=@exercise_2.name%></input>
+  <br></br>
+  <input type="submit" value="Add some favorite workouts!">
+  <br></br>
+
+</form>

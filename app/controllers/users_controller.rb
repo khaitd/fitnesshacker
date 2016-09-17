@@ -92,6 +92,7 @@ class UsersController < ApplicationController
       redirect to '/signup'
     end
     if params[:email].match(VALID_EMAIL_REGEX) == nil
+      #flash message: enter valid email
       redirect to '/signup'
     end
 
@@ -117,8 +118,34 @@ class UsersController < ApplicationController
     end
   end
 
-  get '/users/:exercise/:set/:rep' do
-    binding.pry
+  post '/users/:exercise_1/:rep_1/:set_1/:exercise_2/:rep_2/:set_2' do
+    @user = current_user
+    if params[:exercise_1].class == [].class
+      @exercise_1 = Exercise.find_by(id: params[:exercise_1][1])
+      @fave_1 = FavoriteWorkout.create(rep: params[:rep_1], set: params[:set_1])
+      @fave_1.users << current_user
+      @fave_1.exercises << @exercise_1
+    end
+    if params[:exercise_2].class == [].class
+      @exercise_2 = Exercise.find_by(id: params[:exercise_2][1])
+      @fave_2 = FavoriteWorkout.create(rep: params[:rep_2], set: params[:set_2])
+      @fave_2.users << current_user
+      @fave_2.exercises << @exercise_2
+    end
+    redirect to "/users/#{@user.id}"
+  end
+
+  get '/favorites' do
+    # binding.pry
+    @user = current_user
+    erb :'/users/favorite'
+  end
+
+  get '/delete/:id' do
+    @fave = FavoriteWorkout.find_by(id: params[:id])
+    @fave.destroy
+    redirect to '/favorites'
+    # binding.pry
   end
 
 
