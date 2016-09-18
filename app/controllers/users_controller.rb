@@ -35,6 +35,17 @@ class UsersController < ApplicationController
 
   end
 
+  post '/users/:id' do
+    @user = User.find_by_id(params[:id])
+    ex1 = params[:ex1].split(" ")
+    @log1 = Log.create(name: ex1[0], set: ex1[1], rep: ex1[2])
+    ex2 = params[:ex2].split(" ")
+    @log2 = Log.create(name: ex2[0], set: ex2[1], rep: ex2[2])
+    @user.logs.push(@log1, @log2)
+    redirect "/users/#{params[:id]}"
+  end
+
+
   get '/workout' do
 
     erb :'/users/workout'
@@ -43,7 +54,7 @@ class UsersController < ApplicationController
 
   post '/workout' do
     @b_part =  Type.all.detect{|x| x.name == params[:body_part]}
-    redirect :"/workout/#{params[:body_part].downcase}"
+    redirect "/workout/#{params[:body_part].downcase}"
 
   end
 
