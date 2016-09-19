@@ -1,0 +1,11 @@
+<h1>Here are your favorite workouts <%=@user.username%></h1>
+<br></br>
+
+<%@user.favorite_workouts.each_with_index do |favorite, i|%>
+<h2><%=i+1%></h2>
+<h3><%=favorite.exercises[0].name%></h3>
+<h4><%=favorite.exercises[0].description%></h4>
+<p>Do <%=favorite.set%> sets of <%=favorite.rep%> reps.</p>
+<a href="/delete/<%=favorite.id%>">Delete this workout.</a>
+<br></br>
+<%end%>
