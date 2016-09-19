@@ -2,7 +2,9 @@
 
 <h3>A) <%=@exercise_1.name%></h3>
 
-<img src= "<%= @exercise_1.link%>" > </img>
+<!-- <img src= <%= @exercise_1.link%> > </img> -->
+<img src= <%= @exercise_1.link %> > </img>
+
 
 <p><% @exercise_1.description.split(/\d\. /).each.with_index(1) do |s, i|%>
     <% if s != "" %>
@@ -36,4 +38,3 @@
   <input type="hidden" name="ex2" value="<%=@exercise_2.name.gsub(" ", "-")%> <%=@set_2%> <%=@rep_2%>">
   <input type="submit" value="Completed this Workout">
 </form>
-
