@@ -2,7 +2,7 @@ class UsersController < ApplicationController
 
 
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-]+(\.[a-z]+)*\.[a-z]+\z/i
-
+  ARRAY = ["monday", "tuesday", "wednesday", "thursday", "friday", "saturady", "sunday"]
 
   get '/login' do
       if logged_in?
@@ -58,7 +58,7 @@ class UsersController < ApplicationController
       @fav_2 = FavoriteWorkout.find_or_create_by(set: ex2[1], rep: ex2[2])
       @fav_2.users << current_user
       @fav_2.exercises << @exercise_2
-    end  
+    end
     # binding.pry
 
     redirect "/users/#{params[:id]}"
@@ -167,5 +167,18 @@ class UsersController < ApplicationController
     # binding.pry
   end
 
+ get '/schedule' do
+   erb :'/users/schedule'
+ end
 
+
+ post '/schedule' do
+   @day_array = ["monday", "tuesday", "wednesday", "thursday", "friday", "saturday", "sunday"]
+
+   @frequency = params[:frequency].to_i
+   @workout_days = @day_array.sample(@frequency)
+   @type = Type.all.sample(@frequency)
+
+   erb :'/users/show_schedule'
+ end
 end

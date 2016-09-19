@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160918182318) do
+ActiveRecord::Schema.define(version: 20160919172604) do
 
   create_table "exercise_types", force: :cascade do |t|
     t.integer "exercise_id"
@@ -45,6 +45,13 @@ ActiveRecord::Schema.define(version: 20160918182318) do
 
   create_table "schedules", force: :cascade do |t|
     t.string "name"
+    t.string "monday"
+    t.string "tuesday"
+    t.string "wednesday"
+    t.string "thursday"
+    t.string "friday"
+    t.string "saturday"
+    t.string "sunday"
   end
 
   create_table "types", force: :cascade do |t|

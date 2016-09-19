@@ -1,49 +1,19 @@
-
 <% if flash.has?(:message) %>
   <div class="alert alert-warning alert-dismissible" role="alert"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button><%= flash[:message] %></div>
 <% end %>
-<div class="centeredform">
+<h2 class="text-center login-title">Sign Up to continue to Fitness Hacker</h2>
+<div class="row">
   <form class="form-horizontal" action='/signup' method="POST">
     <fieldset>
-      <div class="form-group">
-<<<<<<< HEAD
           <input type="text" class="form-control" id="inputUsername" placeholder="Username" name="username" required>
-      </div>
-      <div class="form-group">
           <input type="text" class="form-control" id="inputEmail" placeholder="Email" name="email" required>
-      </div>
-      <div class="form-group">
           <input type="password" class="form-control" id="inputPassword" placeholder="Password" name="password" required>
-=======
-          <input type="text" class="form-control" id="inputUsername" placeholder="Username (required)" name="username">
-      </div>
-      <div class="form-group">
-          <input type="text" class="form-control" id="inputEmail" placeholder="Email (required)" name="email">
-      </div>
-      <div class="form-group">
-          <input type="password" class="form-control" id="inputPassword" placeholder="Password (required)" name="password">
->>>>>>> sami
-      </div>
-      <div class="form-group">
           <input type="text" class="form-control" id="inputEmail" placeholder="Age" name="age">
-      </div>
-      <div class="form-group">
           <input type="text" class="form-control" id="inputEmail" placeholder="Gender"  name="gender">
-      </div>
-      <div class="form-group">
           <input type="text" class="form-control" id="inputEmail" placeholder="Weight" name="weight">
-      </div>
-      <div class="form-group">
           <input type="text" class="form-control" id="inputEmail" placeholder="Height" name="height">
-      </div>
-      <div class="form-group">
-          <input type="text" class="form-control" id="inputEmail" placeholder="Goal (cut, build, maintain)" name="goal">
-      </div>
-
-
-      <div class="form-group">
-          <button class="btn btn-lg btn-primary btn-block" type="submit">Submit</button>
-      </div>
+          <input type="text" class="form-control" id="inputEmail" placeholder="Goal (cut, build, maintain)" name="goal"><br><br>
+          <button class="btn btn-lg btn-primary btn-block" type="submit">Submit</button><br>
     </fieldset>
   </form>
-</div>
+</div> <!--signup-->
