@@ -1,6 +1,9 @@
 <h2><%= @user.username %>, here are some workouts for today:</h2>
 
 <h3>A) <%=@exercise_1.name%></h3>
+
+<img src= "<%= @exercise_1.link%>" > </img>
+
 <p><% @exercise_1.description.split(/\d\. /).each.with_index(1) do |s, i|%>
     <% if s != "" %>
       <%= i - 1%>. <%= s %><br><br>
@@ -9,14 +12,17 @@
 
 
 <h3>Do <%=@set_1%> sets of <%=@rep_1%> reps of <%=@exercise_1.name%>.</h3>
- 
+
 <br>
- 
+
 <a href="users/<%=@exercise_1.name%>/<%=@rep_1%>/<%=@set_1%>">Click here to favorite this workout!</a>
- 
+
 <br></br>
- 
+
 <h3>B) <%=@exercise_2.name%></h3>
+
+<img src= "<%= @exercise_2.link%>" > </img>
+
 
 <p><% @exercise_1.description.split(/\d\. /).each.with_index(1) do |s, i|%>
     <% if s != "" %>
@@ -26,7 +32,7 @@
 
 
 <h3>Do <%=@set_2%> sets of <%=@rep_2%> reps of <%=@exercise_2.name%>.</h3>
- 
+
 <br>
- 
+
 <a href="users/<%=@exercise_2.name%>/<%=@set_2%>/<%=@rep_2%>">Click here to favorite this workout!</a>
