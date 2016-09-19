@@ -21,6 +21,7 @@
          <% if logged_in? %>
            <li><a href="/users/<%= current_user.id %>">User Profile</a></li>
            <li><a href="/workout">Generate Workout</a></li>
+           <li><a href="/favorites">Favorite Workouts</a></li>
            <li><a href="/signout">Logout</a></li>
 
          <% else %>

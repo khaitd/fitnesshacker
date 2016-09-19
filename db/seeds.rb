@@ -19,6 +19,7 @@ ex1 = Exercise.create(name: "Dumbbell Bench Press", description: "1. Lie down on
 4. Then, as you breathe out, use your chest to push the dumbbells up. Lock your arms at the top of the lift and squeeze your chest, hold for a second and then begin coming down slowly. Tip: Ideally, lowering the weight should take about twice as long as raising it.
 5. Repeat the movement for the prescribed amount of repetitions of your training program", link: "http://www.exrx.net/AnimatedEx/PectoralSternal/DBBenchPress.gif")
 
+
 ex1.types.push(chest, triceps)
 
 ex2 = Exercise.create(name: "Incline Dumbbell Press", description: "1. Lie back on an incline bench with a dumbbell in each hand atop your thighs. The palms of your hands will be facing each other.

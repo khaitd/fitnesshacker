@@ -1,5 +1,3 @@
-
-
 class UsersController < ApplicationController
 
 
@@ -15,7 +13,7 @@ class UsersController < ApplicationController
   end
 
   post '/login' do
-  user = User.find_by(username: params[:username])
+    user = User.find_by(username: params[:username])
     if user && user.authenticate(params[:password])
       session[:user_id] = user.id
       flash[:message] = "Welcome back #{current_user.username}!"
@@ -42,11 +40,27 @@ class UsersController < ApplicationController
 
   post '/users/:id' do
     @user = User.find_by_id(params[:id])
+    @exercise_1 = Exercise.find_by(name: params[:fav_1])
+    @exercise_2 = Exercise.find_by(name: params[:fav_2])
     ex1 = params[:ex1].split(" ")
     @log1 = Log.create(name: ex1[0], set: ex1[1], rep: ex1[2])
     ex2 = params[:ex2].split(" ")
     @log2 = Log.create(name: ex2[0], set: ex2[1], rep: ex2[2])
     @user.logs.push(@log1, @log2)
+
+    if(params[:fav_1] != nil)
+      @fav_1 = FavoriteWorkout.find_or_create_by(set: ex1[1], rep: ex1[2])
+      @fav_1.users << current_user
+      @fav_1.exercises << @exercise_1
+    end
+
+    if(params[:fav_2] != nil)
+      @fav_2 = FavoriteWorkout.find_or_create_by(set: ex2[1], rep: ex2[2])
+      @fav_2.users << current_user
+      @fav_2.exercises << @exercise_2
+    end  
+    # binding.pry
+
     redirect "/users/#{params[:id]}"
   end
 
@@ -58,31 +72,20 @@ class UsersController < ApplicationController
   end
 
   post '/workout' do
-<<<<<<< HEAD
+
     @b_part =  Type.all.detect{|x| x.name == params[:body_part]}
     redirect "/workout/#{params[:body_part].downcase}"
-
-=======
     @user = current_user
     @b_part =  Type.all.detect{|x| x.name.downcase == params[:body_part]}
     array = @b_part.exercises.sample(2)
     @exercise_1 = array[0]
     @exercise_2 = array[1]
-    # binding.pry
-    # @b_part.exercises.sample(2).each do |wo|
-    #   if @exercise_1 == nil
-    #     @exercise_1 = wo
-    #   else
-    #     @exercise_2 = wo
-    #   end
-    # end
     @set_1 = [3,4,5].sample
     @set_2 = [3,4,5].sample
     @rep_1 = [8,10,12].sample
     @rep_2 = [8,10,12].sample
-    # binding.pry
     erb :'users/workout_now'
->>>>>>> sami
+
   end
 
   get '/workout/:slug' do
@@ -150,22 +153,6 @@ class UsersController < ApplicationController
     end
   end
 
-  post '/users/:exercise_1/:rep_1/:set_1/:exercise_2/:rep_2/:set_2' do
-    @user = current_user
-    if params[:exercise_1].class == [].class
-      @exercise_1 = Exercise.find_by(id: params[:exercise_1][1])
-      @fave_1 = FavoriteWorkout.create(rep: params[:rep_1], set: params[:set_1])
-      @fave_1.users << current_user
-      @fave_1.exercises << @exercise_1
-    end
-    if params[:exercise_2].class == [].class
-      @exercise_2 = Exercise.find_by(id: params[:exercise_2][1])
-      @fave_2 = FavoriteWorkout.create(rep: params[:rep_2], set: params[:set_2])
-      @fave_2.users << current_user
-      @fave_2.exercises << @exercise_2
-    end
-    redirect to "/users/#{@user.id}"
-  end
 
   get '/favorites' do
     # binding.pry
