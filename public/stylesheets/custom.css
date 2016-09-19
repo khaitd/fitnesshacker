@@ -1,3 +1,7 @@
+.main.wrap {
+  min-height: 450px;
+  text-align: center;
+}
 #footer {
   margin-top: 1em;
   text-align: center;

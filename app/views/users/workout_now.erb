@@ -34,6 +34,5 @@
 <form method="POST" action="/users/<%=@user.id%>">
   <input type="hidden" name="ex1" value="<%=@exercise_1.name.gsub(" ", "-")%> <%=@set_1%> <%=@rep_1%>">
   <input type="hidden" name="ex2" value="<%=@exercise_2.name.gsub(" ", "-")%> <%=@set_2%> <%=@rep_2%>">
-  <input type="submit" value="Completed this Workout">
+  <input type="submit" class="btn btn-primary" value="Completed this Workout">
 </form>
-
