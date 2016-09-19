@@ -6,7 +6,7 @@
 
   <body>
             <% if logged_in? %>
-              <li><a href="/">Home</a></li>
+              <li><a href="/users/<%= current_user.id %>">Home</a></li>
               <li><a href="/workout">Generate Workout</a></li>
               <li><a href="/signout">Log Out</a></li>
             <% else %>
