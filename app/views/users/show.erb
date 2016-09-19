@@ -1,3 +1,4 @@
+<div class="main wrap">
 <!--Display flash[:message] if available -->
 <% if flash.has?(:message) %>
 <div class="alert alert-dismissible alert-success animated fadeInDown">
@@ -23,4 +24,13 @@
   <%= i%>. Date: <i><%=t.month%>/<%=t.day%>/<%=t.year%></i> <strong><%=log.name%></strong>: [Sets: <%=log.set%> Reps: <%=log.rep%>] <br>
 <%end%><br>
 
+<h3>Favorite Workouts:</h3>
+<%@user.favorite_workouts.each.with_index(1) do |fav, i|%>
+  <%= i%>
+  <% fav.exercises.each do |ex|%>
+    .<%= ex.name %> Reps: <%= fav.rep%> Sets:<%= fav.set%>
+    <% end %><br>
+<%end%><br>
+
+</div>
 
