@@ -12,6 +12,7 @@
   </head>
 
   <body>
+<<<<<<< HEAD
     <%= erb :'/layouts/_header' %>
     <div class="container">
       <%= yield %>
@@ -23,5 +24,17 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 
   </div> <!--container-->
+=======
+            <% if logged_in? %>
+              <li><a href="/">Home</a></li>
+              <li><a href="/workout">Generate Workout</a></li>
+              <li><a href="/signout">Log Out</a></li>
+              <li><a href="/favorites">Favorite Workouts</a></li>
+            <% else %>
+              <li><a href="/login">Log In</a></li>
+              <li><a href="/signup">Sign Up</a></li>
+            <% end %>
+    <%= yield %>
+>>>>>>> sami
   </body>
 </html>

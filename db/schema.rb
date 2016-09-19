@@ -10,7 +10,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 20160918182318) do
+=======
+ActiveRecord::Schema.define(version: 20160917012350) do
+>>>>>>> sami
 
   create_table "exercise_types", force: :cascade do |t|
     t.integer "exercise_id"
@@ -32,6 +36,21 @@ ActiveRecord::Schema.define(version: 20160918182318) do
     t.integer  "user_id"
   end
 
+  create_table "favorite_workout_exercises", force: :cascade do |t|
+    t.integer "favorite_workout_id"
+    t.integer "exercise_id"
+  end
+
+  create_table "favorite_workouts", force: :cascade do |t|
+    t.integer "user_id"
+    t.string  "rep"
+    t.string  "set"
+  end
+
+  create_table "schedules", force: :cascade do |t|
+    t.string "name"
+  end
+
   create_table "types", force: :cascade do |t|
     t.string "name"
   end
@@ -40,6 +59,11 @@ ActiveRecord::Schema.define(version: 20160918182318) do
     t.integer "user_id"
     t.integer "exercise_id"
     t.string  "duration"
+  end
+
+  create_table "user_favorite_workouts", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "favorite_workout_id"
   end
 
   create_table "users", force: :cascade do |t|

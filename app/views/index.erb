@@ -10,8 +10,16 @@
 <h2>Exercises grouped by type:</h2>
 
 <%@types.each do |type|%>
+<<<<<<< HEAD
   <h3><%=type.name%></h3>
   <%type.exercises.each.with_index(1) do |exercise, i|%>
   <p><%=i%>. <%=exercise.name%></p>
   <%end%>
+=======
+<h2><%=type.name%></h2>
+<%type.exercises.each do |exercise|%>
+<h4><%=exercise.name%></h4>
+<p><%=exercise.description%></p>
+<%end%>
+>>>>>>> sami
 <%end%>
