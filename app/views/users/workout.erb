@@ -2,7 +2,7 @@
 
 
         <div class="form-group">
-            What body part do you want to work out?
+          What body part do you want to work out?
           <select name="body_part">
               <% Type.all.each do |type| %>
               <option id="type_<%=type.id%>" value="<%=type.name%>"><%= type.name %></option>
@@ -11,7 +11,7 @@
         </div>
 
         <div class="form-group">
-            <button type="submit" class="btn fulllengthbutton">SUBMIT</button>
+            <button type="submit" class="btn btn-primary">SUBMIT</button>
         </div>
 
 </form>

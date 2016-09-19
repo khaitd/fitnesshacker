@@ -79,6 +79,7 @@ class UsersController < ApplicationController
       #NEED to add seccessful created user message
     else
       #NEED to add error message
+      flash[:message] = "Something went wrong!"
       redirect '/signup'
     end
   end
@@ -86,8 +87,10 @@ class UsersController < ApplicationController
   get '/signout' do
     if logged_in?
       session.clear
+      flash[:message] = "Successfully Logged Out"
       redirect '/'
     else
+      flash[:message] = "Something went wrong"
       redirect '/'
     end
   end

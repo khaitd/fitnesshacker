@@ -1,4 +1,13 @@
+<!--Display flash[:message] if available -->
+<% if flash.has?(:message) %>
+<div class="alert alert-dismissible alert-success animated fadeInDown">
+  <button type="button" class="close" data-dismiss="alert">&times;</button>
+  <p><%= flash[:message] %></p>
+</div>
+<% end %>
+
 <h1>Welcome <%=  @user.username %>!</h1>
+<a class="btn btn-primary" href="/workout">Generate Workout</a>
 
 <h3>Personal stat's:</h3>
 
