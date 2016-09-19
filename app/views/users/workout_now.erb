@@ -11,19 +11,10 @@
   <%end%></p>
 
 <h3>Do <%=@set_1%> sets of <%=@rep_1%> reps of <%=@exercise_1.name%>.</h3>
-<<<<<<< HEAD
-
-<br>
 
 <a href="users/<%=@exercise_1.name%>/<%=@rep_1%>/<%=@set_1%>">Click here to favorite this workout!</a>
 
-<br></br>
 
-=======
- 
-<a href="users/<%=@exercise_1.name%>/<%=@rep_1%>/<%=@set_1%>">Click here to favorite this workout!</a>
-
->>>>>>> tracker_branch
 <h3>B) <%=@exercise_2.name%></h3>
 
 <img src= "<%= @exercise_2.link%>" > </img>
@@ -36,18 +27,13 @@
   <%end%></p>
 
 <h3>Do <%=@set_2%> sets of <%=@rep_2%> reps of <%=@exercise_2.name%>.</h3>
-<<<<<<< HEAD
 
-<br>
+<a href="users/<%=@exercise_2.name%>/<%=@set_2%>/<%=@rep_2%>">Click here to favorite this workout!</a> <br><br>
 
-<a href="users/<%=@exercise_2.name%>/<%=@set_2%>/<%=@rep_2%>">Click here to favorite this workout!</a>
-=======
- 
-<a href="users/<%=@exercise_2.name%>/<%=@set_2%>/<%=@rep_2%>">Click here to favorite this workout!</a><br><br>
 
 <form method="POST" action="/users/<%=@user.id%>">
   <input type="hidden" name="ex1" value="<%=@exercise_1.name.gsub(" ", "-")%> <%=@set_1%> <%=@rep_1%>">
   <input type="hidden" name="ex2" value="<%=@exercise_2.name.gsub(" ", "-")%> <%=@set_2%> <%=@rep_2%>">
   <input type="submit" value="Completed this Workout">
 </form>
->>>>>>> tracker_branch
+
